@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SALON NOOR | سبت الكردان</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial;background:#0a0a0a;color:#fff}
+.hero{position:relative;height:480px;overflow:hidden}
+.hero img{position:absolute;width:100%;height:100%;object-fit:cover;opacity:0;transition:1s;filter:brightness(.55)}
+.hero img.active{opacity:1}
+.hero-c{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:20px;z-index:2}
+.hero-c h1{font-size:42px;color:#f5c518}
+.hero-c p{margin-top:8px;color:#eee;font-size:19px}
+.btn{display:inline-block;background:#f5c518;color:#000;padding:13px 26px;border-radius:50px;font-weight:800;text-decoration:none;margin-top:16px}
+.wrap{max-width:900px;margin:auto;padding:16px}
+h2{font-size:26px;margin:22px 0 12px}
+h2 span{color:#f5c518}
+.info{background:#1a1a1a;border-radius:18px;padding:18px;text-align:center;line-height:2;font-size:17px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:600px){.grid{grid-template-columns:1fr}}
+.card{background:#1a1a1a;border:1px solid #2a2a2a;border-radius:16px;overflow:hidden}
+.card img{width:100%;height:180px;object-fit:cover}
+.card-in{padding:14px}
+.card-in p{color:#bbb;font-size:14px;margin-top:4px}
+.price{color:#f5c518;font-size:20px;font-weight:800;margin-top:6px}
+.book{background:#fff;color:#111;border-radius:18px;padding:18px}
+input,select{width:100%;padding:12px;margin:6px 0;border:1px solid #ddd;border-radius:10px;font-size:16px}
+.book-btn{width:100%;background:#111;color:#fff;padding:13px;border:none;border-radius:10px;font-weight:800;cursor:pointer}
+.ok{background:#d4edda;color:#155724;padding:10px;border-radius:10px;display:none;text-align:center;font-weight:700}
+.mapbox{background:#1a1a1a;border-radius:18px;overflow:hidden}
+.mapbox iframe{width:100%;height:260px;border:0}
+.mapinfo{padding:14px}
+.mapinfo p{color:#bbb;margin-top:6px}
+.maps-btn{display:block;background:#f5c518;color:#000;text-align:center;padding:12px;border-radius:10px;font-weight:800;text-decoration:none;margin-top:10px}
+#admin{display:none;background:#fff;color:#111;border-radius:14px;padding:16px;margin-top:14px}
+#admin label{font-weight:700;font-size:14px;margin-top:10px;display:block}
+#admin h3{margin:16px 0 6px;border-top:1px solid #eee;padding-top:10px}
+</style>
+</head>
+<body>
+<div class="hero">
+<img class="active" src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=1000">
+<img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=1000">
+<img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=1000">
+<div class="hero-c"><h1 id="salonTitle">SALON NOOR | سبت الكردان</h1><p>حلاقة عصرية | لحية متقنة</p><a href="#booking" class="btn">احجز دابا ✂️</a></div>
+</div>
+<div class="wrap">
+<div class="info">
+<h2>📍 <span>Salon Noor - سبت الكردان</span></h2>
+📌 العنوان: <span id="addrText">شارع محمد الخامس، سبت الكردان، تارودانت</span><br>
+📞 الهاتف: <span id="phoneText">06 00 00 00 00</span><br>
+⏰ الخدمة: كل نهار من 9 صباحاً حتى 10 ليلاً<br>
+🕌 الجمعة: من 3 بعد الصلاة
+</div>
+<h2>خدماتنا <span>المميزة</span></h2>
+<div class="grid">
+<div class="card"><img id="img0" src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=800"><div class="card-in"><h3 id="name0">حلاقة عصرية</h3><p>قص عصري يناسب ستايلك</p><div class="price" id="price0">50 درهم</div></div></div>
+<div class="card"><img id="img1" src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=800"><div class="card-in"><h3 id="name1">حلاقة + لحية</h3><p>تحديد اللحية و عناية كاملة</p><div class="price" id="price1">80 درهم</div></div></div>
+<div class="card"><img id="img2" src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=800"><div class="card-in"><h3 id="name2">صباغة</h3><p>ألوان عصرية و ثبات طويل</p><div class="price" id="price2">120 درهم</div></div></div>
+<div class="card"><img id="img3" src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=800"><div class="card-in"><h3 id="name3">تنظيف البشرة</h3><p>عناية و نضارة للوجه</p><div class="price" id="price3">100 درهم</div></div></div>
+</div><div id="booking" class="book">
+<h2>📅 حجز موعد</h2>
+<div id="ok" class="ok">✅ تم تأكيد حجزك بنجاح!</div>
+<input id="name" placeholder="الاسم الكامل">
+<input id="phone" placeholder="رقم الهاتف 06 XX XX XX XX">
+<input id="date" type="date">
+<select id="time"><option>09:00</option><option>10:00</option><option>11:00</option><option>12:00</option><option>13:00</option><option>14:00</option><option>15:00</option><option>16:00</option><option>17:00</option><option>18:00</option><option>19:00</option><option>20:00</option></select>
+<button class="book-btn" onclick="doBook()">تأكيد الحجز ✓</button>
+</div>
+<div class="mapbox" style="margin-top:14px">
+<iframe id="mapFrame" src="https://maps.google.com/maps?q=Sebt%20El%20Guerdane%2C%20Taroudant%2C%20Morocco&output=embed"></iframe>
+<div class="mapinfo"><h2>📍 موقعنا</h2><p id="addrText2">شارع محمد الخامس، سبت الكردان، تارودانت</p>
+<a id="mapsBtn" class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=Sebt+El+Guerdane+Taroudant+Morocco" target="_blank">📍 افتح في Google Maps و شوف الطريق</a>
+</div>
+</div>
+<div id="admin">
+<h2>🔐 لوحة تحكم مول المحل</h2>
+<label>اسم الصالون</label><input id="eTitle" value="SALON NOOR | سبت الكردان">
+<label>العنوان</label><input id="eAddr" value="شارع محمد الخامس، سبت الكردان، تارودانت">
+<label>رقم الهاتف</label><input id="ePhone" value="06 00 00 00 00">
+<label>المدينة للخريطة</label><input id="eMap" value="Sebt El Guerdane, Taroudant, Morocco">
+<h3>✂️ الخدمة 1</h3>
+<label>السمية</label><input id="eName0" value="حلاقة عصرية">
+<label>الثمن</label><input id="ePrice0" value="50">
+<label>رابط التصويرة</label><input id="eImg0" value="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=800">
+<h3>🧔 الخدمة 2</h3>
+<label>السمية</label><input id="eName1" value="حلاقة + لحية">
+<label>الثمن</label><input id="ePrice1" value="80">
+<label>رابط التصويرة</label><input id="eImg1" value="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=800">
+<h3>🎨 الخدمة 3</h3>
+<label>السمية</label><input id="eName2" value="صباغة">
+<label>الثمن</label><input id="ePrice2" value="120">
+<label>رابط التصويرة</label><input id="eImg2" value="https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=800">
+<h3>✨ الخدمة 4</h3>
+<label>السمية</label><input id="eName3" value="تنظيف البشرة">
+<label>الثمن</label><input id="ePrice3" value="100">
+<label>رابط التصويرة</label><input id="eImg3" value="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=800">
+<button class="book-btn" style="background:#f5c518;color:#000;margin-top:14px" onclick="saveA()">💾 حفظ كل التغييرات</button>
+<h3>📅 الحجوزات</h3><div id="listB">لا توجد حجوزات</div>
+</div>
+</div>
+<footer style="text-align:center;color:#777;padding:18px;font-size:12px"><span onclick="openA()" style="cursor:pointer">• إدارة المحل •</span><br><br>© 2026 SALON NOOR - سبت الكردان</footer>
+<script>
+let im=document.querySelectorAll('.hero img'),c=0;
+setInterval(()=>{im[c].classList.remove('active');c=(c+1)%im.length;im[c].classList.add('active')},3500);
+let bookings=JSON.parse(localStorage.getItem("bk")||"[]");
+function applySaved(){
+try{
+let d=JSON.parse(localStorage.getItem("salonData")||"null");
+if(!d||!d.name0||!d.price0||!d.img0){return;}
+document.getElementById("salonTitle").innerText=d.title;
+document.getElementById("addrText").innerText=d.addr;
+document.getElementById("addrText2").innerText=d.addr;
+document.getElementById("phoneText").innerText=d.phone;
+document.getElementById("mapFrame").src="https://maps.google.com/maps?q="+encodeURIComponent(d.map)+"&output=embed";
+document.getElementById("mapsBtn").href="https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(d.map);
+for(let i=0;i<4;i++){
+document.getElementById("name"+i).innerText=d["name"+i];
+document.getElementById("price"+i).innerText=d["price"+i]+" درهم";
+document.getElementById("img"+i).src=d["img"+i];
+document.getElementById("eName"+i).value=d["name"+i];
+document.getElementById("ePrice"+i).value=d["price"+i];
+document.getElementById("eImg"+i).value=d["img"+i];
+}
+document.getElementById("eTitle").value=d.title;document.getElementById("eAddr").value=d.addr;document.getElementById("ePhone").value=d.phone;document.getElementById("eMap").value=d.map;
+}catch(e){return;}
+}
+applySaved();
+function doBook(){
+let n=document.getElementById("name").value,p=document.getElementById("phone").value,d=document.getElementById("date").value,t=document.getElementById("time").value;
+if(!n||!p||!d){alert("عمر السمية و النمرة و النهار");return;}
+bookings.push({n:n,p:p,d:d,t:t});localStorage.setItem("bk",JSON.stringify(bookings));
+document.getElementById("ok").style.display="block";
+}
+function openA(){
+if(prompt("الكود السري:")!=="1234"){alert("الكود غالط");return;}
+document.getElementById("admin").style.display="block";
+let b="";if(bookings.length==0)b="لا توجد حجوزات";bookings.forEach(x=>{b+="<div style='background:#f5f5f5;padding:8px;border-radius:8px;margin-bottom:5px;font-size:14px'>"+x.n+" - "+x.p+" - "+x.d+" - "+x.t+"</div>"});
+document.getElementById("listB").innerHTML=b;
+document.getElementById("admin").scrollIntoView();
+}
+function saveA(){
+let d={title:document.getElementById("eTitle").value,addr:document.getElementById("eAddr").value,phone:document.getElementById("ePhone").value,map:document.getElementById("eMap").value};
+for(let i=0;i<4;i++){d["name"+i]=document.getElementById("eName"+i).value;d["price"+i]=document.getElementById("ePrice"+i).value;d["img"+i]=document.getElementById("eImg"+i).value;}
+localStorage.setItem("salonData",JSON.stringify(d));
+applySaved();
+alert("تم الحفظ! كلشي تبدل دابا");
+}
+</script>
+</body>
+</html>
